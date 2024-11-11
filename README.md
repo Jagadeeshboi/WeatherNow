@@ -15,7 +15,8 @@ Clone the Repository:
 
 bash
 Copy code
-git clone https://github.com/yourusername/weather-app.git
+git clone https://github.com/Jagadeeshboi/WeatherNow  ![Screenshot (186)](https://github.com/user-attachments/assets/17c394d0-ffdc-4562-963b-06d8d0da1cc4)
+
 cd weather-app
 Install Dependencies:
 
