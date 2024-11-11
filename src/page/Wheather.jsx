@@ -2,19 +2,12 @@ import React, { useState } from 'react'
 import Card from '../Components/Card'
 import LocationTime from '../children/LocationTime'
 import TodayReport from '../children/TodayReport'
-// import FiveDays from '../children/FiveDays'
 import Hourly from '../children/Hourly'
-import { Sunrise, Sunset } from '../utils/location'
 import { useWeatherApi } from '../utils/WheatherApi'
 import SearchBar from '../children/Searchbar'
-// import FiveDaysApi from '../utils/FiveDaysApi'
 const Wheather = () => {
     const [search, onSearch] = useState('');
-    // const FivedaysForecast=FiveDaysApi(search?search:"chennai");
     const {data}= useWeatherApi(search?search:"chennai")
-    const Time=Sunrise(data?.city?.sunrise);
-    const SunsetTime=Sunset(data?.city?.sunset);
-    console.log(data);
     return (
         <>
         {data ? (
@@ -33,9 +26,10 @@ const Wheather = () => {
                     <Card width='w-full'>
                     <TodayReport 
                         Temp={data?.list[0]?.main?.temp - 273.15} 
-                        feelsLike={data?.list[0]?.main?.feels_like - 273.15} 
-                        sunrise={Time} 
-                        sunset={SunsetTime}
+                        feelsLike={data?.list[0]?.main?.feels_like - 273.15}
+                        sunrise={data?.city?.sunrise} 
+                        sunset={data?.city?.sunset} 
+                        TimeZone={data?.city?.coord}
                         Humdity={data?.list[0]?.main?.humidity} 
                         Windspeed={data?.list[0]?.wind?.speed} 
                         pressure={data?.list[0]?.main?.pressure} 

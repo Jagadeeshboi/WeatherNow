@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { format } from 'date-fns-tz';
 import { LocationApi } from './LocationApi';
+import TimeData from './TimeData';
 
 const Location = () => {
   const [location, setLocation] = useState('');
@@ -27,19 +28,12 @@ const Location = () => {
 
 export default Location;
 
-export const Sunrise=(time)=>
+export const Sunrise=(time,TimeZone)=>
 {
-    const unixTimestamp = 1731112489;
-    const date = new Date(unixTimestamp * 1000); 
-    const formattedTime = format(date, 'yyyy-MM-dd HH:mm:ss', { timeZone: 'Asia/Kolkata' });
-
-    return formattedTime;
-}
-export const Sunset=(time)=>
-{
-    const unixTimestamp = 1731112489;
-    const date = new Date(unixTimestamp * 1000); 
-    const formattedTime = format(date, 'yyyy-MM-dd HH:mm:ss', { timeZone: 'Asia/Kolkata' });
-
+    const {lat,lon}=TimeZone;
+    const DateTime=TimeData(lat,lon);
+    console.log(DateTime.timeZone);
+    const date = new Date(time * 1000); 
+    const formattedTime = format(date, 'yyyy-MM-dd HH:mm:ss', { timeZone: `${DateTime?.timeZone}` });
     return formattedTime;
 }

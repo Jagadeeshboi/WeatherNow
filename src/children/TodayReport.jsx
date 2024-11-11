@@ -3,9 +3,10 @@ import { MdAcUnit,  MdWbSunny } from "react-icons/md";
 import { WiHumidity } from "react-icons/wi";
 import { IoSpeedometer, IoSunnySharp } from "react-icons/io5";
 import { BiWind } from "react-icons/bi";
+import { Sunrise } from "../utils/location";
 import { FaCloudSun, FaSnowflake, FaSun } from "react-icons/fa6";
 
-const TodayReport = ({Temp,feelsLike,sunrise,sunset,Humdity,Windspeed,pressure,uv}) => {
+const TodayReport = ({Temp,feelsLike,sunrise,sunset,TimeZone,Humdity,Windspeed,pressure,uv}) => {
     return (
         <div className='grid grid-cols-3 gap-5'>
             <div className="flex flex-col gap-9">
@@ -17,14 +18,14 @@ const TodayReport = ({Temp,feelsLike,sunrise,sunset,Humdity,Windspeed,pressure,u
                     <span className="text-5xl"><GiSunrise className="fill-orange-500"/></span>
                     <ul>
                         <li className="capitalize font-semibold">sunnrise</li>
-                        <li>{sunrise.split(" ")[1].split(":").splice(0,2).join(":")} am</li>
+                        <li>{Sunrise(sunrise,TimeZone).split(" ")[1].split(":").slice(0,2).join(":")} AM</li>
                     </ul>
                 </div>
                 <div className="flex items-center gap-4">
                     <span className="text-5xl"><GiSunset className="fill-orange-500"/></span>
                     <ul>
                         <li className="capitalize font-semibold">sunnrise</li>
-                        <li>{sunset.split(" ")[1].split(":").splice(0,2).join(":")} pm</li>
+                        <li>{Sunrise(sunset,TimeZone).split(" ")[1].split(":").slice(0,2).join(":")} PM</li>
                     </ul>
                 </div>
             </div>  
