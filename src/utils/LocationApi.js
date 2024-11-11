@@ -12,7 +12,7 @@ export const LocationApi=(lat,lng)=>
         SetLocation(data.name);
      }
      FetchL();   
-    },[])
+    },[lat,lng])
     
 
     return Location;

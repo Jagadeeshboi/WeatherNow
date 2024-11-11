@@ -1,6 +1,6 @@
 import { FaCloudSun, FaSnowflake, FaSun } from "react-icons/fa6"
 import { IoSunnySharp } from "react-icons/io5"
-import {MdAcUnit, MdWbSunny} from "react-icons/md"
+import {MdAcUnit} from "react-icons/md"
 const Hourly = ({data}) => {
   return (
     <>

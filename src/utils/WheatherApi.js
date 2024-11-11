@@ -15,13 +15,13 @@ export const useWeatherApi = (city) => {
         } catch (err) {
             setError(err.message);
         }
-    }, [city]);
+    }, [city,apiKey]);
 
     useEffect(() => {
         if (city) {
             fetchWeather();
         }
-    }, [fetchWeather]);
+    }, [fetchWeather,city]);
 
     return { data, error };
 };
